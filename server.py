@@ -10,10 +10,10 @@ def index():
     dark_color = 'black'
     return render_template('index.html', rows=rows, cols=cols, light_color=light_color, dark_color=dark_color)
 
-@app.route('/<light_color>/<dark_color>')
-def custom_colors(light_color, dark_color):
-    rows = 8
-    cols = 8
+@app.route('/<int:x>/<int:y>/<light_color>/<dark_color>')
+def custom_colors(x, y, light_color, dark_color):
+    rows = x
+    cols = y
     return render_template('index.html', rows=rows, cols=cols, light_color=light_color, dark_color=dark_color)
 
 @app.route('/<int:x>')
