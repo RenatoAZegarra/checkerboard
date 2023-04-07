@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkerboard</title>
+	<style>
+		.container {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+		}
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 70px;
+        }
+		table {
+			border-collapse: collapse;
+		}
+		td {
+			width: 50px;
+			height: 50px;
+			border: 1px solid black;
+		}
+		.light {
+			background-color: {{ light_color }};
+		}
+		.dark {
+			background-color: {{ dark_color }};
+		}
+	</style>
+</head>
+<body>
+	<h1>***Checkerboard***</h1>
+	<div class="container">
+	<table>
+		{% for i in range(rows) %}
+			<tr>
+				{% for j in range(cols) %}
+					{% if (i+j)%2 == 0 %}
+						<td class="light"></td>
+					{% else %}
+						<td class="dark"></td>
+					{% endif %}
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</table>
+	</div>
+</body>
+</html>
